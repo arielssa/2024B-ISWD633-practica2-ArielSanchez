@@ -2,17 +2,41 @@
 ![Imagen](img/esquema-ejercicio5.PNG)
 
 ### Crear la red
+
 # COMPLETAR
+
+```
+docker network create net-wp
+```
 
 ### Crear el contenedor mysql a partir de la imagen mysql:8, configurar las variables de entorno necesarias
+
 # COMPLETAR
+
+```
+docker run -d --name srv-bdd --env-file=variablesEntorno.txt mysql:8
+```
+
+```
+docker network connect net-wp srv-bdd
+```
 
 ### Crear el contenedor wordpress a partir de la imagen: wordpress, configurar las variables de entorno necesarias
+
 # COMPLETAR
 
-De acuerdo con el trabajo realizado, en la el esquema de ejercicio el puerto a es **(completar con el valor)**
+```
+docker run --name wordpress-container --env-file=variablesEntorno.txt -p 8080:80 -d wordpress
+```
+
+```
+docker network connect net-wp wordpress-container
+```
+
+De acuerdo con el trabajo realizado, en la el esquema de ejercicio el puerto a es 8080
 
 Ingresar desde el navegador al wordpress y finalizar la configuración de instalación.
+
 # COLOCAR UNA CAPTURA DE LA CONFIGURACIÓN
 
 Desde el panel de admin: cambiar el tema y crear una nueva publicación.
