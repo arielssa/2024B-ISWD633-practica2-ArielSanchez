@@ -1,6 +1,7 @@
 # Variables de Entorno
 ### ¿Qué son las variables de entorno
 # COMPLETAR
+#### Las variables de entorno son pares de nombre y valor que se utilizan en un sistema operativo para almacenar información accesible para los programas y procesos que se ejecutan en el sistema. 
 
 ### Para crear un contenedor con variables de entorno?
 
@@ -12,19 +13,38 @@ docker run -d --name <nombre contenedor> -e <nombre variable1>=<valor1> -e <nomb
 
 # COMPLETAR
 
+```
+docker run -d --name srv-web -e username=arielssa -e role=admin nginx:alpine
+```
+
 # CAPTURA CON LA COMPROBACIÓN DE LA CREACIÓN DE LAS VARIABLES DE ENTORNO DEL CONTENEDOR ANTERIOR
+
+![Imagen](img/variablesEntorno.png)
 
 ### Crear un contenedor con mysql:8 , mapear todos los puertos
 # COMPLETAR
 
+```
+docker run -P -d --name srv-bdd mysql:8
+```
+
 ### ¿El contenedor se está ejecutando?
+
 # COMPLETAR
+#### El servidor no se está ejecutando.
 
 ### Identificar el problema
+
 # COMPLETAR
+#### El estado muestra un "Exited (1)", que denota un fallo en la ejecución.
 
 ### Eliminar el contenedor creado con mysql:8 
+
 # COMPLETAR
+
+```
+docker rm srv-bdd
+```
 
 ### Para crear un contenedor con variables de entorno especificadas
 - Portabilidad: Las aplicaciones se vuelven más portátiles y pueden ser desplegadas en diferentes entornos (desarrollo, pruebas, producción) simplemente cambiando el archivo de variables de entorno.
@@ -41,9 +61,36 @@ docker run -d --name <nombre contenedor> --env-file=<nombreArchivo>.<extensión>
 Es necesario especificar la ruta absoluta del archivo si este se encuentra en una ubicación diferente a la que estás ejecutando el comando docker run.
 
 ### Crear un contenedor con mysql:8 , mapear todos los puertos y configurar las variables de entorno mediante un archivo
+
 # COMPLETAR
 
-# CAPTURA CON LA COMPROBACIÓN DE LA CREACIÓN DE LAS VARIABLES DE ENTORNO DEL CONTENEDOR ANTERIOR 
+```
+docker run -d --name srv-bdd --env-file=variablesEntorno.txt mysql:8
+```
+
+# CAPTURA CON LA COMPROBACIÓN DE LA CREACIÓN DE LAS VARIABLES DE ENTORNO DEL CONTENEDOR ANTERIOR
+
+![Imagen](img/variablesEntornoBDD.png)
 
 ### ¿Qué bases de datos existen en el contenedor creado?
+
 # COMPLETAR
+
+```
+docker exec -it srv-bdd mysql -u mi_usuario -p
+```
+
+```
+SHOW DATABASES;
+```
+
+```
++--------------------+
+| Database           |
++--------------------+
+| empleados          |
+| information_schema |
+| performance_schema |
++--------------------+
+3 rows in set (0.01 sec)
+```
