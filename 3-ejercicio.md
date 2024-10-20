@@ -11,7 +11,7 @@ docker run -d --name srv-postgres -e POSTGRES_PASSWORD=P@ssw0rd postgres:11.21-a
 # COMPLETAR
 
 ```
-docker run -d --name pgadmin -p 5050:80 -e PGADMIN_DEFAULT_EMAIL=admin@example.com -e PGADMIN_DEFAULT_PASSWORD=admin dpage/pgadmin4
+docker run -d --name pgadmin -p 3000:80 -e PGADMIN_DEFAULT_EMAIL=ariel@ejemplo.com -e PGADMIN_DEFAULT_PASSWORD=P@ssw0rd dpage/pgadmin4
 ```
 
 La figura presenta el esquema creado en donde los puertos son:
@@ -51,4 +51,6 @@ SELECT * FROM personas;
 ```
 
 # AGREGAR UNA CAPTURA DE PANTALLA DEL RESULTADO
+
+![Imagen](img/resultadoConsulta.png)
 
